@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBmortm5NgINuSBZwRxVQ4dhgB6gVj9eNg",
+            authDomain: "fake-estate-3f75d.firebaseapp.com",
+            databaseURL: "https://fake-estate-3f75d.firebaseio.com",
+            projectId: "fake-estate-3f75d",
+            storageBucket: "fake-estate-3f75d.appspot.com",
+            messagingSenderId: "752836096158"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src = "register.js" type = "text/javascript">
+
+    </script>
+
+    <script src = "cssman.js" type = "text/javascript">
+
+    </script>
+
+    <script src = "login.js" type = "text/javascript">
+
+    </script>
+</head>
+
+
+<body>
+<button onclick = "toggler()">toggle  </button>
+
+
+    <div id = "register">
+        <label>Aadhar card</label><input id = "aadhar">
+        <label>email</label><input   id ="emailr">
+        <label>name</label><input   id ="name">
+        <label>password</label><input   id ="passwordr" type="password">
+        <label>telephone</label><input id = "telephone">
+        <button id = "register"  onclick="writedata()">register</button>
+    </div>
+
+    <div id = "login" style="display: none" >
+        <label>email</label><input   id ="email">
+        <label>password</label><input   id ="password" type="password">
+        <button id = "login" href = "login.html" onclick="readdata()">login</button>
+    </div>
+
+
+<script>
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            document.location = "profile.html";
+        } else {
+            // No user is signed in.
+        }
+    });
+
+</script>
+</body>
+</html>
